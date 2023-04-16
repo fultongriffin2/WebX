@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Contact Us - WebX</title>
+      <link rel="stylesheet" href="styles.css">
+      <style>
+         body {
+         background-color: white;
+         }
+         #settings {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background-color: #f1f1f1;
+         padding: 20px;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+         }
+         #settings h2 {
+         margin-top: 0;
+         }
+         #settings label {
+         display: block;
+         margin-bottom: 10px;
+         }
+         #settings input[type="color"] {
+         width: 100%;
+         padding: 5px;
+         }
+         #settings button {
+         display: block;
+         margin-top: 10px;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <div class="logo">
+            <h1>WebX</h1>
+         </div>
+         <nav>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="about.html">Proxy</a></li>
+               <li><a href="#">Games</a></li>
+               <li><a href="contact.html">Settings</a></li>
+            </ul>
+         </nav>
+      </header>
+      <section class="contact-section">
+         <h2>Contact Us</h2>
+         <p>You can reach out to us on Discord at:</p>
+         <p><a href="https://discord.com/users/glory%235115">glory#5115</a></p>
+      </section>
+      <div id="settings">
+         <h2>Background Color</h2>
+         <label for="bg-color">Choose a color:</label>
+         <input type="color" id="bg-color">
+         <button id="save-btn">Save</button>
+      </div>
+      <script>
+         const settingsEl = document.getElementById("settings");
+         const colorInputEl = settingsEl.querySelector("#bg-color");
+         const saveBtnEl = settingsEl.querySelector("#save-btn");
+         
+         // retrieve the background color setting from local storage
+         const bgColor = localStorage.getItem("bgColor");
+         if (bgColor) {
+           document.body.style.backgroundColor = bgColor;
+           colorInputEl.value = bgColor;
+         }
+         
+         // save the background color setting to local storage and apply to all pages
+         saveBtnEl.addEventListener("click", () => {
+           localStorage.setItem("bgColor", colorInputEl.value);
+           document.body.style.backgroundColor = colorInputEl.value;
+           const allPages = document.getElementsByTagName("html");
+           for (let i = 0; i < allPages.length; i++) {
+             allPages[i].style.backgroundColor = colorInputEl.value;
+           }
+         });
+      </script>
+   </body>
+</html>

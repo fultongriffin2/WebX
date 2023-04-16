@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My Modern Website</title>
+      <link rel="stylesheet" href="styles.css">
+      <style>
+         body {
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         }
+         #iframe-bg {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         border: none;
+         z-index: -1;
+         }
+      </style>
+   </head>
+   <body>
+      <iframe id="iframe-bg" src="https://jtp2by-8080.csb.app/"></iframe>
+      <header>
+         <div class="logo">
+            <h1>WebX</h1>
+         </div>
+         <nav>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="about.html">Proxy</a></li>
+               <li><a href="games.html">Games</a></li>
+            </ul>
+         </nav>
+      </header>
+      <section class="button-section">
+         <h2>Play Now!</h2>
+         <button onclick="window.location.href='games.html'">Click Here</button>
+      </section>
+   </body>
+</html>
